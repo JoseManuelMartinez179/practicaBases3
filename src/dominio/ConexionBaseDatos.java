@@ -1,4 +1,4 @@
-package src;
+package dominio;
 
 import java.sql.*;
 

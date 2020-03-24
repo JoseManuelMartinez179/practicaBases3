@@ -1,4 +1,4 @@
-package src;
+package dominio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -75,12 +75,20 @@ public class Interfaz extends JFrame {
         setVisible(true);
     }
 
-    private static class OyenteBoton implements ActionListener {
+    private class OyenteBoton implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             // Abrir nueva ventana con el resultado de la consulta
-            String s1 = select.getText();
+            Consulta c1 = new Consulta();
+            c1.setSelect(select.getText());
+            c1.setFrom(from.getText());
+            c1.setWhere(where.getText());
+            c1.setGroup(group.getText());
+            c1.setOrder(order.getText());
+            c1.setLimit(limit.getText());
+            System.out.println(c1);
+            
         }
     }
     

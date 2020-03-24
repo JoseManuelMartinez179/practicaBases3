@@ -1,11 +1,12 @@
-package src;
+package dominio;
 
-public class ConsultaBuilder {
+public class Consulta {
     
     private String select, from, where, group, order, limit;
 
     public String getSelect() {
-        return select;
+        if(select.equals("")) return "";
+        else return "SELECT " + select;
     }
 
     public void setSelect(String select) {
@@ -13,7 +14,8 @@ public class ConsultaBuilder {
     }
 
     public String getFrom() {
-        return from;
+        if(from.equals("")) return "";
+        else return "FROM " + from;
     }
 
     public void setFrom(String from) {
@@ -21,7 +23,8 @@ public class ConsultaBuilder {
     }
 
     public String getWhere() {
-        return where;
+        if(where.equals("")) return "";
+        else return "WHERE " + where;
     }
 
     public void setWhere(String where) {
@@ -29,7 +32,8 @@ public class ConsultaBuilder {
     }
 
     public String getGroup() {
-        return group;
+        if(group.equals("")) return "";
+        else return "GROUP BY " + group;
     }
 
     public void setGroup(String group) {
@@ -37,7 +41,8 @@ public class ConsultaBuilder {
     }
 
     public String getOrder() {
-        return order;
+        if(order.equals("")) return "";
+        else return "ORDER BY " + order;
     }
 
     public void setOrder(String order) {
@@ -45,11 +50,18 @@ public class ConsultaBuilder {
     }
 
     public String getLimit() {
-        return limit;
+        if(limit.equals("")) return "";
+        else return "LIMIT " + limit;
     }
 
     public void setLimit(String limit) {
         this.limit = limit;
     }
+    
+    @Override
+    public String toString() {
+        return getSelect() + " " + getFrom() + " " + getWhere() + " " + getGroup() + " " + getOrder() + " " + getLimit() + ";";
+    }
+ 
     
 }

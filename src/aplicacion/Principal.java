@@ -1,6 +1,6 @@
 package aplicacion;
 
-import src.Interfaz;
+import dominio.Interfaz;
 
 public class Principal {
 
