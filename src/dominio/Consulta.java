@@ -62,6 +62,5 @@ public class Consulta {
     public String toString() {
         return getSelect() + " " + getFrom() + " " + getWhere() + " " + getGroup() + " " + getOrder() + " " + getLimit() + ";";
     }
- 
     
 }

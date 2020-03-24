@@ -2,15 +2,18 @@ package dominio;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Interfaz extends JFrame {
     
     private JTextField select, from, where, group, order, limit;
     private JButton boton;
+    private JRadioButton sakila, world;
             
     public Interfaz() {
         super("Aplicación Consultas");
@@ -64,13 +67,25 @@ public class Interfaz extends JFrame {
         limit.setBounds(90, 220, 750, 40);
         add(limit);
         
+        ButtonGroup group = new ButtonGroup();
+        
+        sakila = new JRadioButton("sakila");
+        sakila.setBounds(850, 100, 50, 40);
+        group.add(sakila);
+        add(sakila);
+        
+        world = new JRadioButton("world");
+        world.setBounds(850, 140, 50, 40);
+        group.add(world);
+        add(world);
+        
         boton = new JButton("Realizar Consulta");
         boton.setBounds(490, 285, 350, 40);
         add(boton);
         
         boton.addActionListener(new OyenteBoton());
         
-        setSize(875, 350);
+        setSize(950, 350);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -88,7 +103,7 @@ public class Interfaz extends JFrame {
             c1.setOrder(order.getText());
             c1.setLimit(limit.getText());
             System.out.println(c1);
-            
+            System.out.println(c1.getSelect().charAt(0));
         }
     }
     
