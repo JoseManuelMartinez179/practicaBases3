@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+
+// Interfaz principal en la cual el usuario realiza la consulta
 public class Interfaz extends JFrame {
     
     private JTextField select, from, where, group, order, limit;
@@ -106,6 +108,8 @@ public class Interfaz extends JFrame {
             c1.setLimit(limit.getText());
             System.out.println(c1);
             System.out.println(s1.analisisSelect(c1.getSelect()));
+            InterfazSolucion is1 = new InterfazSolucion();
+            is1.setVisible(true);
         }
     }
     

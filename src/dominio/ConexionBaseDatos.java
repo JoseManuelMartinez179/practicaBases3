@@ -11,38 +11,20 @@ public class ConexionBaseDatos {
     String usuario = "usuario1";
     String contrasenna = "contraseña1";
     
-    public void consultaSakila(String consulta, int columnas) {
+    public void consultaSakila(String consulta, int columnas, String database) {
         try{
             String url = "jdbc:mysql://localhost:3306/sakila";
-            Class.forName(driver);  
-            conexion = DriverManager.getConnection(url, usuario, contrasenna);  
-            statement = conexion.createStatement();
-            statement.executeQuery("use sakila;");
-            resultado = statement.executeQuery(consulta);  
-        
-            while(resultado.next())  
-            System.out.println(resultado.getInt(1) +"  "+ resultado.getString(2) +"  "+ resultado.getString(3));  
-        
-            conexion.close();  
-        }
-        catch(Exception e){ 
-            System.out.println(e);
-        }
-    }
-    
-    public void consultaWorld(String consulta, int columnas) {
-        try{
-            String url = "jdbc:mysql://localhost:3306/world";
+            String base = "use" + database;
             
-            Class.forName(driver);  
+            Class.forName(driver);
             conexion = DriverManager.getConnection(url, usuario, contrasenna);  
             statement = conexion.createStatement();
-            statement.executeQuery("use world;");
-            resultado = statement.executeQuery(consulta);  
+            statement.executeQuery(base);
+            resultado = statement.executeQuery(consulta);
+            
+            while(resultado.next())  
+            System.out.println(resultado.getString(1) +"  "+ resultado.getString(2) +"  "+ resultado.getString(3));  
         
-            while(resultado.next()){
-            System.out.println(resultado.getInt(1) + "  " + resultado.getString(2) + "  " + resultado.getString(3));  
-            }
             conexion.close();  
         }
         catch(Exception e){ 
