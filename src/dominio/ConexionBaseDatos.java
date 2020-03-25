@@ -40,9 +40,9 @@ public class ConexionBaseDatos {
             statement.executeQuery("use world;");
             resultado = statement.executeQuery(consulta);  
         
-            while(resultado.next())  
+            while(resultado.next()){
             System.out.println(resultado.getInt(1) +"  "+ resultado.getString(2) +"  "+ resultado.getString(3));  
-        
+            }
             conexion.close();  
         }
         catch(Exception e){ 
