@@ -1,13 +1,32 @@
 package interfaz;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 
 // En esta ventana quiero que salga el resultado de la consulta
-public class InterfazSolucion extends JFrame {
+public class InterfazSolucion {
+    private JTable tabla;
+    private JFrame ventana;
+    private JScrollPane scroll;
+
+
+    public void creaYMuestraVentana() {
+        ventana = new JFrame("Contenido base de datos");
+        if (tabla == null) tabla = new JTable();
+        scroll = new JScrollPane(tabla);
+        ventana.getContentPane().add(scroll);
+        ventana.pack();
+        ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ventana.setVisible(true);
+    }
     
-    public InterfazSolucion() {
-        setSize(1080, 720);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setVisible(true);
+    public void tomaDatos(DefaultTableModel modelo)
+    {
+        if (tabla == null)
+            tabla = new JTable();
+        tabla.setModel(modelo);
     }
 }

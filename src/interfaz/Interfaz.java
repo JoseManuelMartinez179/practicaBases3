@@ -1,7 +1,7 @@
 package interfaz;
 
+import dominio.ConexionBaseDatos;
 import dominio.Consulta;
-import dominio.Scraper;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
@@ -99,7 +99,6 @@ public class Interfaz extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             Consulta c1 = new Consulta();
-            Scraper s1 = new Scraper();
             c1.setSelect(select.getText());
             c1.setFrom(from.getText());
             c1.setWhere(where.getText());
@@ -107,9 +106,8 @@ public class Interfaz extends JFrame {
             c1.setOrder(order.getText());
             c1.setLimit(limit.getText());
             System.out.println(c1);
-            System.out.println(s1.analisisSelect(c1.getSelect()));
-            InterfazSolucion is1 = new InterfazSolucion();
-            is1.setVisible(true);
+            ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "sakila");
+            
         }
     }
     

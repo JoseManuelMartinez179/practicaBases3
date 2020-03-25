@@ -1,8 +1,13 @@
 package dominio;
 
+import interfaz.InterfazSolucion;
 import java.sql.*;
+import javax.swing.table.DefaultTableModel;
 
 public class ConexionBaseDatos {
+    private InterfazSolucion tabla;
+    private DefaultTableModel modelo;
+    
     String driver = "com.mysql.jdbc.Driver";
     Connection conexion;
     Statement statement;
@@ -11,9 +16,9 @@ public class ConexionBaseDatos {
     String usuario = "usuario1";
     String contrasenna = "contraseña1";
     
-    public void consultaSakila(String consulta, int columnas, String database) {
+    public ConexionBaseDatos(String consulta, String database) {
         try{
-            String url = "jdbc:mysql://localhost:3306/sakila";
+            String url = "jdbc:mysql://localhost:3306/" + database;
             String base = "use" + database;
             
             Class.forName(driver);
@@ -22,9 +27,8 @@ public class ConexionBaseDatos {
             statement.executeQuery(base);
             resultado = statement.executeQuery(consulta);
             
-            while(resultado.next())  
-            System.out.println(resultado.getString(1) +"  "+ resultado.getString(2) +"  "+ resultado.getString(3));  
-        
+            modelo = new DefaultTableModel();
+            ConversorResultSet.rellena(resultado, modelo);
             conexion.close();  
         }
         catch(Exception e){ 
