@@ -1,5 +1,7 @@
-package dominio;
+package interfaz;
 
+import dominio.Consulta;
+import dominio.Scraper;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
@@ -70,12 +72,12 @@ public class Interfaz extends JFrame {
         ButtonGroup group = new ButtonGroup();
         
         sakila = new JRadioButton("sakila");
-        sakila.setBounds(850, 100, 50, 40);
+        sakila.setBounds(850, 100, 100, 40);
         group.add(sakila);
         add(sakila);
         
         world = new JRadioButton("world");
-        world.setBounds(850, 140, 50, 40);
+        world.setBounds(850, 140, 100, 40);
         group.add(world);
         add(world);
         
@@ -85,7 +87,7 @@ public class Interfaz extends JFrame {
         
         boton.addActionListener(new OyenteBoton());
         
-        setSize(950, 350);
+        setSize(950, 375);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -94,8 +96,8 @@ public class Interfaz extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Abrir nueva ventana con el resultado de la consulta
             Consulta c1 = new Consulta();
+            Scraper s1 = new Scraper();
             c1.setSelect(select.getText());
             c1.setFrom(from.getText());
             c1.setWhere(where.getText());
@@ -103,7 +105,7 @@ public class Interfaz extends JFrame {
             c1.setOrder(order.getText());
             c1.setLimit(limit.getText());
             System.out.println(c1);
-            System.out.println(c1.getSelect().charAt(0));
+            System.out.println(s1.analisisSelect(c1.getSelect()));
         }
     }
     

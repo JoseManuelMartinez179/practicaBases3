@@ -11,7 +11,7 @@ public class ConexionBaseDatos {
     String usuario = "usuario1";
     String contrasenna = "contraseña1";
     
-    public void consultaSakila(String consulta) {
+    public void consultaSakila(String consulta, int columnas) {
         try{
             String url = "jdbc:mysql://localhost:3306/sakila";
             Class.forName(driver);  
@@ -30,7 +30,7 @@ public class ConexionBaseDatos {
         }
     }
     
-    public void consultaWorld(String consulta) {
+    public void consultaWorld(String consulta, int columnas) {
         try{
             String url = "jdbc:mysql://localhost:3306/world";
             
@@ -41,7 +41,7 @@ public class ConexionBaseDatos {
             resultado = statement.executeQuery(consulta);  
         
             while(resultado.next()){
-            System.out.println(resultado.getInt(1) +"  "+ resultado.getString(2) +"  "+ resultado.getString(3));  
+            System.out.println(resultado.getInt(1) + "  " + resultado.getString(2) + "  " + resultado.getString(3));  
             }
             conexion.close();  
         }
