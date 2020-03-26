@@ -73,7 +73,7 @@ public class Interfaz extends JFrame {
         
         ButtonGroup group = new ButtonGroup();
         
-        sakila = new JRadioButton("sakila");
+        sakila = new JRadioButton("sakila", true);
         sakila.setBounds(850, 100, 100, 40);
         group.add(sakila);
         add(sakila);
@@ -106,7 +106,13 @@ public class Interfaz extends JFrame {
             c1.setOrder(order.getText());
             c1.setLimit(limit.getText());
             System.out.println(c1);
-            ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "sakila");
+            System.out.println(sakila.isSelected() == true);
+            if(sakila.isSelected() == true) {
+                ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "sakila");
+            }
+            else {
+                ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "world");
+            }
         }
     }
     
