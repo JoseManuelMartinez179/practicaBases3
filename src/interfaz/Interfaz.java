@@ -104,8 +104,6 @@ public class Interfaz extends JFrame {
             c1.setGroup(group.getText());
             c1.setOrder(order.getText());
             c1.setLimit(limit.getText());
-            System.out.println(c1);
-            System.out.println(sakila.isSelected() == true);
             if(sakila.isSelected() == true) {
                 InterfazSolucion is1 = new InterfazSolucion(c1.toString(), "sakila");
             }
