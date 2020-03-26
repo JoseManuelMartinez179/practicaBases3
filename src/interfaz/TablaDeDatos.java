@@ -7,7 +7,7 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 // En esta ventana quiero que salga el resultado de la consulta
-public class InterfazSolucion {
+public class TablaDeDatos {
     private JTable tabla;
     private JFrame ventana;
     private JScrollPane scroll;

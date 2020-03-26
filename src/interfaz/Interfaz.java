@@ -107,7 +107,6 @@ public class Interfaz extends JFrame {
             c1.setLimit(limit.getText());
             System.out.println(c1);
             ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "sakila");
-            
         }
     }
     
