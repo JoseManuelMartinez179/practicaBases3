@@ -8,7 +8,7 @@ public class ConexionBaseDatos {
     private InterfazSolucion tabla;
     private DefaultTableModel modelo;
     
-    String driver = "com.mysql.jdbc.Driver";
+    String driver = "com.mysql.cj.jdbc.Driver";
     Connection conexion;
     Statement statement;
     ResultSet resultado;
