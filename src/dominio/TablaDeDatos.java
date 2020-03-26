@@ -19,7 +19,7 @@ public class TablaDeDatos {
         scroll = new JScrollPane(tabla);
         ventana.getContentPane().add(scroll);
         ventana.setSize(1080, 720);
-        ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ventana.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         ventana.setVisible(true);
     }
     

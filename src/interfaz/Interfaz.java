@@ -17,6 +17,7 @@ public class Interfaz extends JFrame {
     private JTextField select, from, where, group, order, limit;
     private JButton boton;
     private JRadioButton sakila, world;
+    private JLabel tiempo;
             
     public Interfaz() {
         super("Aplicación Consultas");
@@ -70,6 +71,14 @@ public class Interfaz extends JFrame {
         limit.setBounds(90, 220, 750, 40);
         add(limit);
         
+        JLabel t = new JLabel("Tiempo de Ejecución:");
+        t.setBounds(90, 285, 140, 40);
+        add(t);
+        
+        tiempo = new JLabel();
+        tiempo.setBounds(232, 285, 180, 40);
+        add(tiempo);
+        
         ButtonGroup group = new ButtonGroup();
         
         sakila = new JRadioButton("sakila", true);
@@ -106,9 +115,14 @@ public class Interfaz extends JFrame {
             c1.setLimit(limit.getText());
             if(sakila.isSelected() == true) {
                 InterfazSolucion is1 = new InterfazSolucion(c1.toString(), "sakila");
+                long tiempoTotal = is1.getTiempoConsulta();
+                tiempo.setText(Long.toString(tiempoTotal) + " nanosegundos");
             }
             else {
                 InterfazSolucion is1 = new InterfazSolucion(c1.toString(), "world");
+                System.out.println(is1.getTiempoConsulta());
+                long tiempoTotal = is1.getTiempoConsulta();
+                tiempo.setText(Long.toString(tiempoTotal) + " nanosegundos");
             }
         }
     }
