@@ -1,6 +1,5 @@
 package interfaz;
 
-import dominio.ConexionBaseDatos;
 import dominio.Consulta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -108,13 +107,11 @@ public class Interfaz extends JFrame {
             System.out.println(c1);
             System.out.println(sakila.isSelected() == true);
             if(sakila.isSelected() == true) {
-                ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "sakila");
+                InterfazSolucion is1 = new InterfazSolucion(c1.toString(), "sakila");
             }
             else {
-                ConexionBaseDatos b1 = new ConexionBaseDatos(c1.toString(), "world");
+                InterfazSolucion is1 = new InterfazSolucion(c1.toString(), "world");
             }
         }
     }
-    
-    
 }

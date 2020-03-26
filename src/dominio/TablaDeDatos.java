@@ -1,4 +1,4 @@
-package interfaz;
+package dominio;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -18,7 +18,7 @@ public class TablaDeDatos {
         if (tabla == null) tabla = new JTable();
         scroll = new JScrollPane(tabla);
         ventana.getContentPane().add(scroll);
-        ventana.pack();
+        ventana.setSize(1080, 720);
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ventana.setVisible(true);
     }

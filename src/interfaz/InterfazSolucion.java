@@ -1,10 +1,11 @@
-package dominio;
+package interfaz;
 
-import interfaz.TablaDeDatos;
+import dominio.ConversorResultSet;
+import dominio.TablaDeDatos;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
-public class ConexionBaseDatos {
+public class InterfazSolucion {
     private TablaDeDatos tabla;
     private DefaultTableModel modelo;
     
@@ -16,7 +17,7 @@ public class ConexionBaseDatos {
     String usuario = "usuario1";
     String contrasenna = "contraseña1";
     
-    public ConexionBaseDatos(String consulta, String database) {
+    public InterfazSolucion(String consulta, String database) {
         try{
             String url = "jdbc:mysql://localhost:3306/" + database;
             String base = "use " + database;
